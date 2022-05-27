@@ -6,7 +6,6 @@ import Movies from '../../components/Movies/Movies';
 import Favorites from '../../components/Favorites/Favorites';
 import { initialState, reducer } from '../../cases';
 import axios from "axios";
-import MovieItem from '../../components/MovieItem/MovieItem';
 
 
 const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";

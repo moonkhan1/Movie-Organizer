@@ -43,7 +43,6 @@ const DEFAULT_PLACEHOLDER_IMAGE =
 const Movies = ({ movie, props , addToFav}) => {
     const poster =
     movie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;  
-    // const FavouriteComponent = props.favouriteComponent;
     return (
     <div onClick={()=>addToFav(movie)}className="movies_item">
       <h2 className="movie-item__title">{movie.Title}</h2>
@@ -60,7 +59,6 @@ const Movies = ({ movie, props , addToFav}) => {
         
       </div>
       <p className="movie-item__title">
-      {/* <FavouriteComponent /> */}
       </p>
 
     </div>
