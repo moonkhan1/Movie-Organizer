@@ -1,3 +1,13 @@
 .movies__item {
     margin-bottom: 21px;
 }
+
+.movie-item__poster {
+    height: 150px;
+    margin-right: 21px;
+}
+.movie-item__title {
+    font-weight: 500;
+    font-size: 21px;
+    margin-bottom: 14px;
+}

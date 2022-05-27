@@ -31,3 +31,8 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.dlt_btn{
+    background-color: #496DDB;
+    margin: 10px 25px;
+}
