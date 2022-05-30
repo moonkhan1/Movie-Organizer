@@ -1,5 +1,5 @@
-// import React, { Component } from 'react';
-// import './MovieItem.css';
+import React, { Component } from 'react';
+import './MovieItem.css';
 
 // class MovieItem extends Component {
 //     render() {

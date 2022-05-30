@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 // import MovieItem from '../MovieItem/MovieItem';
 import './Movies.css';
 
@@ -37,12 +37,13 @@ import './Movies.css';
 // export default Movies;
 
 // import './App.css';
-const DEFAULT_PLACEHOLDER_IMAGE =
-  "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
+// const DEFAULT_PLACEHOLDER_IMAGE =
+  // "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
 
 const Movies = ({ movie, props , addToFav}) => {
     const poster =
-    movie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : movie.Poster;  
+    movie.Poster 
+
     return (
     <div onClick={()=>addToFav(movie)}className="movies_item">
       <h2 className="movie-item__title">{movie.Title}</h2>
@@ -60,7 +61,6 @@ const Movies = ({ movie, props , addToFav}) => {
       </div>
       <p className="movie-item__title">
       </p>
-
     </div>
 
 
