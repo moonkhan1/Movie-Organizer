@@ -27,7 +27,10 @@ const getListId = (idList) => {
 }
 const saveFavList = (title, movies) => {
     // for(var i in movies){
-    let data = { Title: props.movies[0].Title, imdbID: props.movies[0].imdbID }
+    let data = { title: text, movies: []}
+    for(let i = 0;i < props.movies.length;i++){
+        data.movies.push(props.movies[i].imdbID)
+    }
 
     fetch('https://acb-api.algoritmika.org/api/movies/list', {
         method: 'POST',
@@ -40,9 +43,7 @@ const saveFavList = (title, movies) => {
         .then(response => response.json())
         .then(data => {
             let listId = data.id;
-            setId({
-                listId: listId
-            });
+            setId(listId);
         })
         console.log(data)
     if (props.movies.length !== 0) {
@@ -64,7 +65,7 @@ const saveFavList = (title, movies) => {
                 <button type="button"className={props.showLink ? 'favorites__save' : 'favorites__save-none'} disabled={!text} 
                 onClick={()=>saveFavList()} >Сохранить список</button>
                 <div className={props.showLink ? 'favorites-link' : ''}>
-                    {showlink && <Link to={`/list/${props.listId}`}>Go to list page</Link>}
+                    {showlink && <Link to={`/list/${listId}`}>Go to list page</Link>}
                 </div>
             </div>
         );

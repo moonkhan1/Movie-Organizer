@@ -5,11 +5,11 @@ import './ListPage.css';
 
 class ListPage extends Component {
     state = {
-        title: '',
-        movies: []
+        movies: [],
+        title:''
     }
     componentDidMount () {
-        const id = this.props.match.params.imdbID;
+        const id = this.props.match.params.id;
         if (id) {
             fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`)
                 .then(resp => {
@@ -21,24 +21,30 @@ class ListPage extends Component {
                 })
                 .then(data => {
                     if (data) {
-                       this.setState({ movies: data.movies, title: data.title })
+                        let movie=[]
+                        data.movies.map(elem=>{
+                            fetch(`http://www.omdbapi.com/?i=${elem}&apikey=53638081`)
+                            .then(res => res.json())
+                            .then(data => {movie.push({id: elem, name: data.Title});this.setState({ movies: movie})})
+                        })
                     } else {
                         alert('No list')
                     }
                 })
-        }
+            }
 
     }
+
 render(){
 
         return (
             <div className="list-page">
                 <h1 className="list-page__title">{this.state.title}</h1>
                 <ul>
-                    {this.state.movies.map((item) => {
+                    {this.state.movies?.map((item) => {
                         return (
-                            <li key={item.movies}>
-                                <a href={`https://www.imdb.com/title/${item.imdbID}/`} target="_blank">{item.Title} ({item.Year})</a>
+                            <li key={item.id}>
+                                <a href={`https://www.imdb.com/title/${item.id}/`} target="_blank">{item.name}</a>
 
                             </li>
                         )
